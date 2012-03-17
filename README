@@ -27,11 +27,17 @@ If you change your code online, you should update you local respository like thi
 	git pull
 If that make no sense, then try this below:
 	git push -u origin master
+First push to online take command above, after that you can only type this:
+	git push
 
 Anyway, once you changed your local code and want to push to online, you should run the command above.
+
 =============================
 More about create a new respository for mac:
 1.http://help.github.com/mac-set-up-git/
 2.http://help.github.com/create-a-repo/
 
+=============================
+More about run HTML files directly from GitHub: 
+Refer to :http://pages.github.com/
 ======Last modify: 2012-03-17===========
