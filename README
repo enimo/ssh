@@ -1,2 +1,20 @@
 It's a simple ssh socket tunnel for pac.
 Thank god :）
+
+==========2012-03-17========
+Plus a github introduction:
+Global setup:
+ Set up git
+  git config --global user.name "enimo"
+  git config --global user.email enimong@gmail.com
+      
+Next steps:
+  mkdir ssh
+  cd ssh
+  git init
+  touch README
+  vi README //add your introduction or something you like
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:enimo/ssh.git
+  git push -u origin master
