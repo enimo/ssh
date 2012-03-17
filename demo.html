@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>demo with: node.remysharp.com:8001</title>
+
+		<style>
+			 html,body{font:normal 0.9em arial,helvetica;}
+			  #log {width:440px; height:200px; border:1px solid #7F9DB9; overflow:auto;}
+			   #msg {width:330px;}
+		</style>
+
+<script>
+	var socket;
+	//but-node.remysharp.com:8001
+	//目前必须依赖外网提供的公共的socket接口，本地的php server.php run起来目前连接不上--20110312
+	//本地的nodejs socket.io run起来也连接不上
+	//client代码能连上远程说明无问题
+	//nodejs client和server都使用socket.io时可以连接上，但看链接用的是xhr-polling长轮询，而不是websocket
+	//var hostws = 'ws://node.remysharp.com:8001';//for pub
+	var hostws = "ws://127.0.0.1:8898/websocket-php/server.php"; //for local php server.php
+	//var hostws = "ws://127.0.0.1/code_review/websocket-php-detail/server/server.php";
+
+
+	function init(){
+
+		  if(!("WebSocket" in window)){ log('当前浏览器不支持WebSocket');return; }
+		  	//var host = "ws://localhost:8000";
+				
+				// let's invite Firefox to the party.
+					if (window.MozWebSocket) {
+							  window.WebSocket = window.MozWebSocket;
+							  	}
+									
+
+					           try{
+								socket = new window.WebSocket(hostws);
+										      log('WebSocket - status '+socket.readyState);
+											      socket.onopen    = function(msg){ log("Welcome - status "+this.readyState); };
+												  socket.onmessage = function(msg){ log("Received: "+msg.data); };
+											socket.onclose   = function(msg){ log("Disconnected - status "+this.readyState); };
+														    }
+															  catch(ex){ log(ex); }
+															    $("msg").focus();
+															}
+
