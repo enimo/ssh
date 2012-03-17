@@ -11,11 +11,14 @@
 
 <script>
 	var socket;
-	var hostws = "ws://127.0.0.1:8898/websocket-php/server.php"; //for local php server.php
-function init(){
+	var hostws = 'ws://node.remysharp.com:8001';//for pub
+	function init(){
 
-  if(!("WebSocket" in window)){ log('当前浏览器不支持WebSocket');return; }
-	//var host = "ws://localhost:8000";
+  	if(!("WebSocket" in window)){ 
+  		log('当前浏览器不支持WebSocket');
+  		return; 
+  		
+  	}
 	
 	// let's invite Firefox to the party.
 	if (window.MozWebSocket) {
@@ -23,36 +26,24 @@ function init(){
 	}
 	
 
-  try{
-    socket = new window.WebSocket(hostws);
-    log('WebSocket - status '+socket.readyState);
-    socket.onopen    = function(msg){ log("Welcome - status "+this.readyState); };
-    socket.onmessage = function(msg){ log("Received: "+msg.data); };
-    socket.onclose   = function(msg){ log("Disconnected - status "+this.readyState); };
-  }
-  catch(ex){ log(ex); }
-  $("msg").focus();
-}
-
-function send(){
-  var txt,msg;
-  txt = $("msg");
-  msg = txt.value;
-  if(!msg){ alert("Message can not be empty"); return; }
-  txt.value="";
-  txt.focus();
-  try{ socket.send(msg); log('Sent: '+msg); } catch(ex){ log(ex); }
-}
-function quit(){
-  log("Goodbye!");
-  socket.close();
-  socket=null;
+ 	try{
+   	 socket = new window.WebSocket(hostws);
+   	 log('WebSocket - status '+socket.readyState);
+   	 socket.onopen    = function(msg){ log("Welcome - status "+this.readyState); };
+   	 socket.onmessage = function(msg){ log("Received: "+msg.data); };
+    	 socket.onclose   = function(msg){ log("Disconnected - status "+this.readyState); };
+  	}catch(ex){ 
+  	 log(ex);
+  	}
+  
+ 	 $("msg").focus();
 }
 
 // Utilities
 function $(id){ return document.getElementById(id); }
 function log(msg){ $("log").innerHTML+="<br>"+msg; }
 function onkey(event){ if(event.keyCode==13){ send(); } }
+
 </script>
 
 </head>
