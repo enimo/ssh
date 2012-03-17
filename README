@@ -22,8 +22,15 @@ The code above executes actions locally, meaning you still haven’t done anythi
   git remote add origin git@github.com:enimo/demo.git
   git push -u origin master
 
+Last step:
+If you change your code online, you should update you local respository like this:
+	git pull
+If that make no sense, then try this below:
+	git push -u origin master
+
 =============================
 More about create a new respository for mac:
 1.http://help.github.com/mac-set-up-git/
 2.http://help.github.com/create-a-repo/
 
+======end 2012-03-17===========
