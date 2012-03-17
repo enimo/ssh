@@ -6,7 +6,7 @@ Plus a github introduction:
 Global setup:
  Set up git
   git config --global user.name "enimo"
-  git config --global user.email enimong@gmail.com
+  git config --global user.email enimoxxx@gmail.com
       
 Next steps:
   mkdir demo
