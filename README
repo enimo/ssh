@@ -28,9 +28,10 @@ If you change your code online, you should update you local respository like thi
 If that make no sense, then try this below:
 	git push -u origin master
 
+Anyway, once you changed your local code and want to push to online, you should run the command above.
 =============================
 More about create a new respository for mac:
 1.http://help.github.com/mac-set-up-git/
 2.http://help.github.com/create-a-repo/
 
-======end 2012-03-17===========
+======Last modify: 2012-03-17===========
