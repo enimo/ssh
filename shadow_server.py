@@ -98,7 +98,7 @@ class Socks5Server(SocketServer.StreamRequestHandler):
 if __name__ == '__main__':
     os.chdir(os.path.dirname(__file__) or '.')
 
-    with open('config.json', 'rb') as f:
+    with open('shadow_config.json', 'rb') as f:
         config = json.load(f)
     SERVER = config['server']
     PORT = config['server_port']
